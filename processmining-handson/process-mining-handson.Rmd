@@ -1,0 +1,156 @@
+# Install libraries
+
+```{r}
+install.packages("bupaverse")
+install.packages("bpmnVisualizationR")
+```
+
+# Analyse du flux de contrôle
+
+```{r}
+# Compute frequency
+library(bupaR)
+library(dplyr)
+
+# Import the CSV process execution data and create a data frame
+df <- read.csv("data/loan-app-process-data-simulated.csv")
+print(df)
+```
+
+## Create bupaR activity log data structure
+
+```{r}
+# Create bupaR activity log data structure
+process_data <- df %>%
+  dplyr::rename(start = startTime,
+                 complete = completeTime) %>%
+  convert_timestamps(columns = c("start", "complete"), format = ymd_hms) %>%
+  mutate(Actor = NA) %>%
+  activitylog(case_id = "loanID",
+              activity_id = "activity",
+              resource_id = "Actor",
+              timestamps = c("start", "complete"))
+
+print(process_data)
+```
+
+## Getting basic summary
+
+```{r}
+# getting basic summary
+process_data %>% n_activities
+process_data %>% n_activity_instances
+process_data %>% n_cases
+```
+
+## Explore executed process instances
+
+```{r}
+process_data %>% trace_explorer(coverage = 1)
+```
+
+## Compute frequency
+
+```{r}
+# get frequency of activities
+process_data %>% activities
+```
+
+# Analyse de la Performance
+
+```{r}
+process_data %>% processing_time("case", units = "hours")%>%
+  plot()
+```
+
+```{r}
+process_data %>% 
+  process_matrix(performance(FUN = mean, units = "hours", flow_time = "idle")) %>%
+  plot()
+```
+
+```{r}
+library(psmineR)
+process_data %>%
+  ps_detailed(segment_coverage = 0) %>%
+  plot()
+
+```
+
+# Animate data
+
+```{r}
+library(processanimateR)
+
+event_log <- to_eventlog(process_data)
+
+animate_process(event_log)
+
+animate_process(event_log, mapping = token_aes(color = token_scale("red")))
+```
+
+# Prediction
+
+## Prepare the dataset
+
+```{r}
+library("processpredictR")
+
+process_data_for_prediction <- prepare_examples(process_data, task = "outcome")
+
+print(process_data_for_prediction)
+```
+
+## Split into training/testing data
+
+```{r}
+split <- process_data_for_prediction %>% split_train_test(split = 0.8)
+split
+```
+
+## Create the predictive model
+
+```{r}
+library(tensorflow)
+library(keras)
+
+model <- split$train_df %>% create_model(name = "my_first_outcome_predictive_model")
+
+# the preprocessing steps, such as tokenizing of sequences, normalizing numerical features, etc. happen within the create_model() function and are abstracted from the user.
+```
+
+## Model Compilation & Training
+
+```{r}
+model %>% compile() # model compilation
+```
+
+```{r}
+hist <- fit(object = model, train_data = split$train_df, epochs = 5)
+```
+
+```{r}
+hist$metrics
+```
+
+## Make predictions on the test data
+
+```{r}
+predictions <- model %>% predict(test_data = split$test_df, 
+                                 output = "append") # default
+predictions %>% head(5)
+```
+
+```{r}
+# print confusion matrix
+confusion_matrix(predictions)
+```
+
+```{r}
+model %>% evaluate(split$test_df)
+```
+
+```{r}
+# library(reticulate)
+# use_python("C:\\Users\\noura\\AppData\\Local\\Programs\\Python\\Python310")
+```
