@@ -40,16 +40,6 @@ Content is currently available in:
 
 All sources are available on [Bonita Camp GitHub repository](https://github.com/Bonitasoft-Community/bonita-camp/):
 
-- Slides are created using reveal.js and are located in the [slides](https://github.com/Bonitasoft-Community/bonita-camp/tree/master/slides) folder
+- Slides are created using h5p and are located in the [h5p](https://github.com/Bonitasoft-Community/bonita-camp/tree/master/h5p) folder.
 - Exercises are hosted using GitHub Pages. Source are located in the [docs](https://github.com/Bonitasoft-Community/bonita-camp/tree/master/docs) folder and content is available for users at **[http://bonitasoft-community.github.io/bonita-camp-fstm/](http://bonitasoft-community.github.io/bonita-camp-fstm/)**
-
-### Build instructions for slides
-
-1. Download and unzip [reveal.js](https://github.com/hakimel/reveal.js/archive/master.zip)
-1. Paste the content of the `slides/THE_LANGUAGE/` folder into your `reveal.js` directory
-1. Paste the content of the `slides/theme` folder in your `reveal.js/css/theme/source` folder
-1. Run `npm install`
-1. Run `npm install -g grunt-cli`
-1. Run `grunt package`
-1. Use the built zip package to share and run the presentation
 
