@@ -1,3 +1,17 @@
+## For FSTM students
+Below are the links that you'll use to access the material of each day
+### Day 1
+- [Bonita installation & exercises](https://bonitasoft-community.github.io/bonita-camp-fstm/fr/)
+- [Technical slides](https://raw.githack.com/Bonitasoft-Community/bonita-camp-fstm/master/h5p/BonitaUniversityCamp-FR.html)
+
+### Day 2
+- [Bonita installation & exercises](https://bonitasoft-community.github.io/bonita-camp-fstm/fr/)
+- [Technical slides](https://raw.githack.com/Bonitasoft-Community/bonita-camp-fstm/master/h5p/BonitaUniversityCamp-FR.html)
+
+### Day 3
+- [Process Mining questions](https://raw.githack.com/Bonitasoft-Community/bonita-camp-fstm/master/h5p/BonitaUniversityCamp-FR-ProcessMining-Questions.html)
+- [Process Mining hands-on](https://bonitasoft-community.github.io/bonita-camp/fr/10-process-mining.html)
+
 # Bonita Camp
 
 Bonita Camp is an introduction training to Bonita Community Edition.  
@@ -19,7 +33,6 @@ Content is currently available in:
 - English (Bonita Camp 2021.2)
 - Français (Bonita Camp 2021.2)
 - Español (Bonita BPM 2021.2)
-
 
 ## For Bonita Camp contributors
 
