@@ -38,8 +38,8 @@ Content is currently available in:
 
 ### Sources
 
-All sources are available on [Bonita Camp GitHub repository](https://github.com/Bonitasoft-Community/bonita-camp/):
+All sources are available on [Bonita Camp GitHub repository](https://github.com/Bonitasoft-Community/bonita-camp-fstm/):
 
-- Slides are created using h5p and are located in the [h5p](https://github.com/Bonitasoft-Community/bonita-camp/tree/master/h5p) folder.
-- Exercises are hosted using GitHub Pages. Source are located in the [docs](https://github.com/Bonitasoft-Community/bonita-camp/tree/master/docs) folder and content is available for users at **[http://bonitasoft-community.github.io/bonita-camp-fstm/](http://bonitasoft-community.github.io/bonita-camp-fstm/)**
+- Slides are created using h5p and are located in the [h5p](https://github.com/Bonitasoft-Community/bonita-camp-fstm/tree/master/h5p) folder.
+- Exercises are hosted using GitHub Pages. Source are located in the [docs](https://github.com/Bonitasoft-Community/bonita-camp-fstm/tree/master/docs) folder and content is available for users at **[http://bonitasoft-community.github.io/bonita-camp-fstm/](http://bonitasoft-community.github.io/bonita-camp-fstm/)**
 
