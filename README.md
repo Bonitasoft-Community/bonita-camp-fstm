@@ -21,7 +21,7 @@ Bonita Camp comes with:
 
 - A set of slides commented in a [series of videos](https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp) (also available in [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOPSATzZe-zPh-LrSNGfpQEf) and [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOOgWEMHZjk5rjc9qsCnh7bi)) or during live sessions
 - A set of exercises described on a [dedicated web site](http://bonitasoft-community.github.io/bonita-camp-fstm/)
-- [Exercises solutions](https://github.com/Bonitasoft-Community/bonita-camp/releases/latest)
+- [Exercises solutions](https://github.com/Bonitasoft-Community/bonita-camp-fstm/releases/latest)
 
 If you need assistance you can:
 
