@@ -13,11 +13,11 @@ Si vous avez besoin d'assistance n'hésitez pas à :
 Le Bonita Camp se compose :
 * D'un ensemble de slides présentés et commentés dans une [séries de vidéos](https://www.youtube.com/playlist?list=PLvvoQatxaHOPSATzZe-zPh-LrSNGfpQEf) ou lors de sessions live
 * D'un ensemble d'exercices décrits sur ce site web
-* Les [corrections des exercices](https://github.com/Bonitasoft-Community/bonita-camp/releases/latest)
+* Les [corrections des exercices](https://github.com/Bonitasoft-Community/bonita-camp-fstm/releases/latest)
 
 ## Prérequis
 1. [Téléchargez](https://fr.bonitasoft.com/telechargez) et installez la dernière version du Studio Bonita. Pour plus de détails référez vous à la [documentation officielle](https://documentation.bonitasoft.com/bonita/latest/bonita-studio-download-installation)
-1. Vous pouvez également optionnellement télécharger les corrections et les slides au format PDF depuis la [section "release" du projet GitHub bonita-camp](https://github.com/Bonitasoft-Community/bonita-camp/releases/latest)
+1. Vous pouvez également optionnellement télécharger les corrections et les slides au format PDF depuis la [section "release" du projet GitHub bonita-camp](https://github.com/Bonitasoft-Community/bonita-camp-fstm/releases/latest)
 1. Téléchargez [Fake SMTP](http://nilhcem.github.io/FakeSMTP/downloads/fakeSMTP-latest.zip). Cette application va être utilisée pour simuler un serveur de mail.
 1. Il est recommandé d'utiliser Chrome ou Firefox lors du développement pour bénéficier de l'outillage de test de ces navigateurs. 
    Edge et Safari sont également supportés (IE11 n'est plus supporté). Afin de savoir quel navigateur est utilisé par défaut par le Studio, cliquez sur le bouton **Lancer** ![icone lancer](images/icon-run.png). L'application utilisateur Bonita devrait s'ouvrir avec le navigateur par défaut de votre système d'exploitation. Vous pouvez configurer le Studio Bonita pour qu'il utilise un navigateur autre que celui par défaut :
