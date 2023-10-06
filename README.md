@@ -10,7 +10,7 @@ Below are the links that you'll use to access the material of each day
 
 ### Day 3
 - [Process Mining questions](https://raw.githack.com/Bonitasoft-Community/bonita-camp-fstm/master/h5p/BonitaUniversityCamp-FR-ProcessMining-Questions.html)
-- [Process Mining hands-on](https://bonitasoft-community.github.io/bonita-camp/fr/10-process-mining.html)
+- [Process Mining hands-on](https://bonitasoft-community.github.io/bonita-camp-fstm/fr/10-process-mining.html)
 
 # Bonita Camp
 
