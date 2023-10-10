@@ -17,7 +17,7 @@ title: Bonita Camp 🏝
 email: adoption@bonitasoft.com
 description: >- # this means to ignore newlines until "baseurl:"
   Bonita Camp is a short training to learn how to build applications with Bonita 
-baseurl: "/bonita-camp" # the subpath of your site, e.g. /blog
+baseurl: "/bonita-camp-fstm" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bonitasoft
 github_username:  bonitasoft-community
