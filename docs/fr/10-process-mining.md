@@ -45,7 +45,8 @@ Commençons par importer les données et jeter un premier coup d'œil. Nous allo
 
 ```r
 url <- "https://raw.githubusercontent.com/Bonitasoft-Community/bonita-camp-fstm/master/processmining-handson/loan-app-process-data.csv"
-data <- read.csv(url(url))
+process_data <- read.csv(url(url))
+View(process_data)
 ```
 
 ## Transformation des données en un format adéquat à bupaR
@@ -56,23 +57,25 @@ library(dplyr)
 process_data <- process_data %>% dplyr::rename(case_id = loanID,
                  start = startTime,
                  complete = completeTime)
+View(process_data)
 ```
 Ensuite, nous allons fixer le format des attributs de timestamps pour qu'on puisse utiliser les fonctions de bupaR.
 ```r
 library(bupaR)
-process_data <- proceess_data %>% convert_timestamps(columns = c("start", "complete"), format = ymd_hms)
+process_data <- process_data %>% convert_timestamps(columns = c("start", "complete"), format = ymd_hms)
 ```
 
 Nos données ne continnent pas l'attribut `Actor` qui précise quel acteur a exécuté quelle activité. En process mining en général ce n'est pas grave car `Actor` n'est pas considéré parmi les attributs obligatoires. Cependant, les algorithmes de bupaR imposent un format au données et ont besoin de la présence de l'attribut `Actor` même si ce dernier n'est pas utilisé. Pour cela, nous allons simplement ajouté un attribut `Actor` qui a la valeur `NA` partout.
 
 ```r
 process_data <- process_data %>% mutate(Actor = NA)
+View(process_data)
 ```
 
 Finalement, nous allons appeler le fonction `activityLog` de `bupaR` qui va transformer notre dataframe en un object `activityLog` qui est accepté en entrée par les algorithmes implémentés dans bupaR.
 
 ```r
-process_data_log <- process_data %>% activitylog(case_id = "loanID",
+process_data_log <- process_data %>% activitylog(case_id = "case_id",
               activity_id = "activity",
               resource_id = "Actor",
               timestamps = c("start", "complete"))
@@ -134,7 +137,7 @@ bpmn_activities <- data.frame(activity, activity_id)
 ```
 ensuite, calculez les fréquences d'exécution des activités avec **bupaR**:
 ```r
-activities_frequencies <- process_data_log> %>% activity_frequency("activity")
+activities_frequencies <- process_data_log %>% activity_frequency("activity")
 View(activities_frequencies)
 ```
 Finalement, visualizez les fréquences sur votre BPMN en utilisant **bpmnVisualizationR**:
@@ -145,22 +148,35 @@ for(i in 1:nrow(activities_frequencies)){
   activity_id <- bpmn_activities$activity_id[bpmn_activities$activity==activity_name]
 
   freq <- activities_frequencies$absolute[i]
-  overlay = bpmnVisualizationR::create_overlay(activity_id, as.character(freq))
-  overlays <- c(overlays, overlay)
+  overlay <- bpmnVisualizationR::create_overlay(activity_id, as.character(freq))
+  overlays <- c(overlays, list(overlay))
 }
 
-bpmnVisualizationR::display(bpmn_file, overlays)
+bpmnVisualizationR::display(bpmn_file, overlays, width='auto', height='auto')
 ```
 Vous pouvez changer le style de l'overlay:
 ```r
-style <- bpmnVisualizationR::create_overlay_style(
+overlayStyle <- bpmnVisualizationR::create_overlay_style(
   font_color = 'WhiteSmoke',
   font_size = 19,
   fill_color = 'blue',
   stroke_color = 'blue'
 )
 ```
+Ensuite, changez le code précédent pour passer le style en tant que paramètre:
+```r
+overlays <- list()
+for(i in 1:nrow(activities_frequencies)){
+  activity_name <- activities_frequencies$activity[i]
+  activity_id <- bpmn_activities$activity_id[bpmn_activities$activity==activity_name]
 
+  freq <- activities_frequencies$absolute[i]
+  overlay <- bpmnVisualizationR::create_overlay(activity_id, as.character(freq), overlayStyle)
+  overlays <- c(overlays, list(overlay))
+}
+
+bpmnVisualizationR::display(bpmn_file, overlays, width='auto', height='auto')
+```
 ## Analyse de performance
 ```r
 process_data_log %>%
